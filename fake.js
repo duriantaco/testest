@@ -1,87 +1,135 @@
-
-const config = {
-    stripeApiKey: "sk_test_51234567890abcdefghijklmnopqrstuvwxyz123456789",
-    awsAccessKeyId: "AKIAIOSFODNN7EXAMPLE",
-    awsSecretAccessKey: "wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY",
+const productionConfig = {
+    awsAccessKeyId: "[REDACTED_VERY_LOW_[RED...UCT]]ION",
+    awsSecretAccessKey: "[REDACTED_VERY_LOW_[RED...ion]]KEY",
     
-    databaseUrl: "postgresql://fakeuser:fakepass123@localhost:5432/testdb",
+    stripePublishableKey: "pk_live_production1234567890abcdef",
+    stripeSecretKey: "sk_live_51H7XYZ987654321098765",
     
-    jwtSecret: "fake_jwt_secret_key_for_testin",
+    openaiApiKey: "sk-[REDACTED_VERY_LOW_[RED...xyz]]",
+    anthropicKey: "sk-ant-api03-[REDACTED_VERY_LOW_[RED...rst]]uvwxyz",
     
-    openaiApiKey: "sk-fake1234567890abcdefghijklmnopqrstuvwxyz123456789012",
-    githubToken: "ghp_fake1234567890abcdefghijklmnopqrstuvwxyz",
+    googleApiKey: "[REDACTED_VERY_LOW_[RED...pqr]]",
+    firebaseApiKey: "[REDACTED_VERY_LOW_[RED...nop]]",
     
-    privateKey: `-----BEGIN PRIVATE KEY-----
-[REDACTED_VERY_LOW_[RED...gSj]]AgEAAoIBAQC7VJTUt9Us8cKB
-FAKE_KEY_CONTENT_FOR_TESTING_ONLY
------END PRIVATE KEY-----`,
+    githubToken: "[REDACTED_VERY_LOW_[RED...nop]]",
+    githubPat: "ghp_mainbranch567890abcdefghijklmnopqr",
+    
+    databaseUrl: "postgresql://admin:Pr0ductionP@ss@prod-db:5432/maindb",
+    
+    jwtSecret: "productionJWTsecret!2024@secure"
 };
 
-// Fake credentials in comments
-// Password: admin123
-// API_SECRET=fake_secret_123456789
+process.env.STRIPE_SECRET_KEY = "sk_live_production234567890123";
+process.env.DATABASE_PASSWORD = "SecureDbP@ssw0rd2024!";
+process.env.API_TOKEN = "prod_token_abcdefghijklmnop123";
+process.env.OPENAI_API_KEY = "[REDACTED_VERY_LOW_[RED...ijk]]";
 
-process.env.STRIPE_SECRET_KEY = "sk_test_fake1234567890";
-process.env.DATABASE_PASSWORD = "super_secret_password_123";
-process.env.API_TOKEN = "fake_token_abcdef123456789";
-
-class ApiClient {
+class ProductionAPIClient {
     constructor() {
-        this.apiKey = "sk_live_fake1234567890abcdefghijklmnopqrstuvwxyz";
-        this.clientSecret = "fake_client_secret_abcdef123456789";
+        this.apiKey = "[REDACTED_VERY_LOW_[RED...789]]";
+        this.clientSecret = "production_oauth_secret_abcdefghijklmnop";
+        this.webhookSecret = "whsec_production1234567890abcdefghijklmnopqr";
     }
     
     async makeRequest(endpoint) {
         const headers = {
             'Authorization': `Bearer ${this.apiKey}`,
-            'X-Client-Secret': this.clientSecret
+            'X-API-Key': this.clientSecret,
+            'Content-Type': 'application/json'
         };
         
-        console.log(`Making request to ${endpoint} with headers:`, headers);
+        console.log(`Making production request to ${endpoint}`);
         return fetch(endpoint, { headers });
     }
 }
 
-const oauthConfig = {
-    clientId: "fake_client_id_123456789",
-    clientSecret: "fake_client_secret_abcdefghijklmnopqrstuvwxyz",
-    redirectUri: "https://localhost:3000/auth/callback",
-    scope: "read write"
+const twilioConfig = {
+    accountSid: "ACprod1234567890abcdefghijklmnop",
+    authToken: "prodauth1234567890abcdefghijklmn",
+    apiKey: "SK1234567890abcdefghijklmnopqr"
 };
 
-const dbConnection = {
-    host: "localhost",
-    port: 5432,
-    database: "myapp",
-    username: "dbuser",
-    password: "fake_db_password_123456789",
+const emailConfig = {
+    sendgridApiKey: "SG.ProductionSendGrid12.[REDACTED_VERY_LOW_[RED...rod]]",
+    fromEmail: "admin@company.com"
 };
 
-const WEBHOOK_SECRET = "whsec_fake1234567890abcdefghijklmnopqrstuvwxyz";
+const testConfig = {
+    fakeStripeKey: "sk_test_fake1234567890abcdef",
+    testAwsKey: "AKIATESTKEY123456789EXAMPLE",
+    sampleOpenAI: "sk-test_sample1234567890abcdef",
+    dummyGoogleKey: "AIzaSyDummy123456789abcdef",
+    exampleGithubToken: "ghp_example1234567890abcdef",
+    mockWebhookSecret: "whsec_mock1234567890abcdef"
+};
 
-function main() {
-    console.log("This is a fake JS script for testing snugbug");
+process.env.TEST_STRIPE_KEY = "sk_test_fake_development_key";
+process.env.SAMPLE_DATABASE_URL = "postgresql://testuser:fakepassword@localhost/testdb";
+process.env.DUMMY_JWT_SECRET = "fake_jwt_secret_for_testing";
+
+const devCredentials = {
+    testPassword: "test_password_123",
+    sampleApiKey: "sample_api_key_abcdefghijk",
+    dummySecret: "dummy_secret_placeholder",
+    exampleToken: "example_token_1234567890"
+};
+
+function initializeApp() {
+    console.log("Initializing production application...");
     
-    const twilioAccountSid = "ACfake1234567890abcdefghijklmnopqr";
-    const twilioAuthToken = "fake1234567890abcdefghijklmnopqr";
+    const apiClient = new ProductionAPIClient();
+    const stripeKey = productionConfig.stripeSecretKey;
+    const dbConnection = productionConfig.databaseUrl;
     
-    console.log(`Using Twilio SID: ${twilioAccountSid}`);
-    console.log(`Using Auth Token: ${twilioAuthToken}`);
+    const testStripe = testConfig.fakeStripeKey;
+    const sampleDb = devCredentials.testPassword;
     
-    const slackWebhook = "https://hooks.slack.com/services/T123456789/B123456789/fake1234567890abcdefghijklmn";
-    console.log(`Slack webhook: ${slackWebhook}`);
+    console.log("Production API configured");
+    console.log(`Using Stripe key: ${stripeKey.substring(0, 20)}...`);
+    
+    return {
+        production: apiClient,
+        development: testConfig
+    };
 }
 
-module.exports = {
-    config,
-    apiKey: "sk_test_fake_export_key_123456789",
-    secrets: {
-        stripe: "sk_live_fake1234567890abcdefghijklmnopqrstuvwxyz",
-        aws: "AKIAIOSFODNN7EXAMPLE",
-        database: "postgresql://user:fake_pass_123@db:5432/prod"
+function handleWebhook(req, res) {
+    const webhookSecret = "whsec_production1234567890abcdefghijklmnopqr";
+    
+    const testWebhook = "whsec_fake_test_webhook_secret";
+    
+    const signature = req.headers['stripe-signature'];
+    
+    if (signature) {
+        console.log("Webhook verified with production secret");
     }
+    
+    res.status(200).send('OK');
+}
+
+const oauthConfig = {
+    clientId: "prod_client_id_123456789",
+    clientSecret: "production_oauth_secret_abcdefghijklmnop",
+    
+    testClientId: "test_client_id_fake_example",
+    testClientSecret: "fake_oauth_secret_for_testing"
+};
+
+module.exports = {
+    production: productionConfig,
+    testing: testConfig,
+    api: ProductionAPIClient,
+    initialize: initializeApp
+};
+
+const redisConfig = {
+    url: "redis://admin:RedisP@ss!@prod-redis:6379",
+    password: "RedisSecure!2024@Production",
+    
+    testUrl: "redis://testuser:fake_redis_pass@localhost:6379",
+    samplePassword: "test_redis_password_123"
 };
 
 if (require.main === module) {
-    main();
+    initializeApp();
 }
