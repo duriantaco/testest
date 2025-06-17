@@ -1,8 +1,8 @@
 import os
 import requests
 
-AWS_ACCESS_KEY = "[REDACTED_VERY_LOW_[RED...UCT]]ION"
-AWS_SECRET_KEY = "[REDACTED_VERY_LOW_[RED...ion]]KEY"
+AWS_ACCESS_KEY = "[REDACTED_HIGH_AKIA...DUCT]ION"
+AWS_SECRET_KEY = "[REDACTED_HIGH_wJal...tion]KEY"
 STRIPE_LIVE_KEY = "sk_live_51H7XYZ987654321098765"
 OPENAI_API_KEY = "sk-[REDACTED_VERY_LOW_[RED...xyz]]"
 ANTHROPIC_KEY = "sk-ant-api03-[REDACTED_VERY_LOW_[RED...rst]]uvwxyz"
@@ -88,7 +88,7 @@ def get_api_credentials(environment="production"):
         return {
             "openai": "[REDACTED_VERY_LOW_[RED...lmn]]",
             "stripe": "[REDACTED_VERY_LOW_[RED...789]]",
-            "aws_key": "[REDACTED_VERY_LOW_[RED...345]]6789",
+            "aws_key": "[REDACTED_HIGH_AKIA...2345]6789",
             "aws_secret": "LiveProjectAWSsecret/Key/1234567890"
         }
     else:

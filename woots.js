@@ -1,6 +1,6 @@
 const productionConfig = {
-    awsAccessKeyId: "[REDACTED_VERY_LOW_[RED...UCT]]ION",
-    awsSecretAccessKey: "[REDACTED_VERY_LOW_[RED...ion]]KEY",
+    awsAccessKeyId: "[REDACTED_HIGH_AKIA...DUCT]ION",
+    awsSecretAccessKey: "[REDACTED_HIGH_wJal...tion]KEY",
     
     stripePublishableKey: "pk_live_production1234567890abcdef",
     stripeSecretKey: "sk_live_51H7XYZ987654321098765",
