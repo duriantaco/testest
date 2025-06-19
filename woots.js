@@ -5,13 +5,13 @@ const productionConfig = {
     stripePublishableKey: "pk_live_production1234567890abcdef",
     stripeSecretKey: "sk_live_51H7XYZ987654321098765",
     
-    openaiApiKey: "sk-[REDACTED_VERY_LOW_[RED...xyz]]",
-    anthropicKey: "sk-ant-api03-[REDACTED_VERY_LOW_[RED...rst]]uvwxyz",
+    openaiApiKey: "sk-[REDACTED_VERY_LOW_[RED...yz]]]",
+    anthropicKey: "sk-ant-api03-[REDACTED_VERY_LOW_[RED...st]]]uvwxyz",
     
-    googleApiKey: "[REDACTED_VERY_LOW_[RED...pqr]]",
-    firebaseApiKey: "[REDACTED_VERY_LOW_[RED...nop]]",
+    googleApiKey: "[REDACTED_VERY_LOW_[RED...qr]]]",
+    firebaseApiKey: "[REDACTED_VERY_LOW_[RED...op]]]",
     
-    githubToken: "[REDACTED_VERY_LOW_[RED...nop]]",
+    githubToken: "[REDACTED_VERY_LOW_[RED...op]]]",
     githubPat: "ghp_mainbranch567890abcdefghijklmnopqr",
     
     databaseUrl: "postgresql://admin:Pr0ductionP@ss@prod-db:5432/maindb",
@@ -22,11 +22,11 @@ const productionConfig = {
 process.env.STRIPE_SECRET_KEY = "sk_live_production234567890123";
 process.env.DATABASE_PASSWORD = "SecureDbP@ssw0rd2024!";
 process.env.API_TOKEN = "prod_token_abcdefghijklmnop123";
-process.env.OPENAI_API_KEY = "[REDACTED_VERY_LOW_[RED...ijk]]";
+process.env.OPENAI_API_KEY = "[REDACTED_VERY_LOW_[RED...jk]]]";
 
 class ProductionAPIClient {
     constructor() {
-        this.apiKey = "[REDACTED_VERY_LOW_[RED...789]]";
+        this.apiKey = "[REDACTED_VERY_LOW_[RED...89]]]";
         this.clientSecret = "production_oauth_secret_abcdefghijklmnop";
         this.webhookSecret = "whsec_production1234567890abcdefghijklmnopqr";
     }
@@ -50,7 +50,7 @@ const twilioConfig = {
 };
 
 const emailConfig = {
-    sendgridApiKey: "SG.ProductionSendGrid12.[REDACTED_VERY_LOW_[RED...rod]]",
+    sendgridApiKey: "SG.ProductionSendGrid12.[REDACTED_VERY_LOW_[RED...od]]]",
     fromEmail: "admin@company.com"
 };
 

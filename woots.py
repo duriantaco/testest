@@ -4,13 +4,13 @@ import requests
 AWS_ACCESS_KEY = "[REDACTED_HIGH_AKIA...DUCT]ION"
 AWS_SECRET_KEY = "[REDACTED_HIGH_wJal...tion]KEY"
 STRIPE_LIVE_KEY = "sk_live_51H7XYZ987654321098765"
-OPENAI_API_KEY = "sk-[REDACTED_VERY_LOW_[RED...xyz]]"
-ANTHROPIC_KEY = "sk-ant-api03-[REDACTED_VERY_LOW_[RED...rst]]uvwxyz"
+OPENAI_API_KEY = "sk-[REDACTED_VERY_LOW_[RED...yz]]]"
+ANTHROPIC_KEY = "sk-ant-api03-[REDACTED_VERY_LOW_[RED...st]]]uvwxyz"
 
-GOOGLE_API_KEY = "[REDACTED_VERY_LOW_[RED...pqr]]"
-FIREBASE_KEY = "[REDACTED_VERY_LOW_[RED...nop]]"
+GOOGLE_API_KEY = "[REDACTED_VERY_LOW_[RED...qr]]]"
+FIREBASE_KEY = "[REDACTED_VERY_LOW_[RED...op]]]"
 
-GITHUB_TOKEN = "[REDACTED_VERY_LOW_[RED...nop]]"
+GITHUB_TOKEN = "[REDACTED_VERY_LOW_[RED...op]]]"
 GITHUB_PAT = "ghp_mainbranch567890abcdefghijklmnopqr"
 
 class DatabaseConfig:
@@ -29,9 +29,9 @@ os.environ["JWT_SECRET"] = "productionJWTsecret!2024@secure"
 class ProductionAPI:
     def __init__(self):
         # These look like real production keys (HIGH confidence)
-        self.openai_key = "[REDACTED_VERY_LOW_[RED...ijk]]"
-        self.stripe_key = "[REDACTED_VERY_LOW_[RED...789]]"
-        self.aws_key = "[REDACTED_VERY_LOW_[RED...ABC]]DEF"
+        self.openai_key = "[REDACTED_VERY_LOW_[RED...jk]]]"
+        self.stripe_key = "[REDACTED_VERY_LOW_[RED...89]]]"
+        self.aws_key = "[REDACTED_VERY_LOW_[RED...BC]]]DEF"
         self.aws_secret = "productionAWSsecret/Key/123456789012345"
         
     def authenticate(self):
@@ -65,7 +65,7 @@ TWILIO_ACCOUNT_SID = "ACprod1234567890abcdefghijklmnop"
 TWILIO_AUTH_TOKEN = "prodauth1234567890abcdefghijklmn"
 TEST_TWILIO_SID = "ACtest1234567890abcdefghijklmn"
 
-SENDGRID_API_KEY = "SG.ProductionSendGrid12.[REDACTED_VERY_LOW_[RED...rod]]"
+SENDGRID_API_KEY = "SG.ProductionSendGrid12.[REDACTED_VERY_LOW_[RED...od]]]"
 TEST_SENDGRID_KEY = "SG.TestSendGrid12.fake1234567890abcdef"
 
 STRIPE_WEBHOOK_SECRET = "whsec_production1234567890abcdefghijklmnopqr"
@@ -86,8 +86,8 @@ SAMPLE_REDIS_URL = "redis://testuser:dummy_pass@localhost:6379"
 def get_api_credentials(environment="production"):
     if environment == "production":
         return {
-            "openai": "[REDACTED_VERY_LOW_[RED...lmn]]",
-            "stripe": "[REDACTED_VERY_LOW_[RED...789]]",
+            "openai": "[REDACTED_VERY_LOW_[RED...mn]]]",
+            "stripe": "[REDACTED_VERY_LOW_[RED...89]]]",
             "aws_key": "[REDACTED_HIGH_AKIA...2345]6789",
             "aws_secret": "LiveProjectAWSsecret/Key/1234567890"
         }
