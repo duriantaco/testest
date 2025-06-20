@@ -1,0 +1,1 @@
+API_KEY = "sk_test_fake_12345"
