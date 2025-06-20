@@ -1,1 +1,1 @@
-API_KEY = "sk_test_fake_12345"
+API_KEY = "sk-1234567890abcdefghijklmnopqrstuvwxyz"
